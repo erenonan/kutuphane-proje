@@ -1,0 +1,88 @@
+"""
+Proje Adı: Çalışanlar İçin Kütüphane Sistemi
+Ders: Algoritma ve Programalama 2 
+Dersin Hocası: Güncel Sarıman
+Proje Sahibi: Mücahit Eren Onan - 231602003
+Github: https://github.com/erenonan
+"""
+
+"""
+Proje Kısa Sunum:
+    
+    Halihazırda bulunan bir kütüphaneye çalışan tarafından kitap ekleme, arama, listeleme yapılmasını
+    sağlanan bir sistem.
+    
+"""
+
+"""
+Projenin Kısa Sözde Kodu:
+    
+    1: Başla
+    2: Sözlük ekle
+    3: kitap ekleme fonksiyonu ekle 
+    4: kitap ekleme fonksiyonun içine girdileri al ve sözlüğe ekle
+    5: kitapları listeleme fonksiyonu ekle
+    6: listeleeme fonksiyonu içinde if else bloüu içinde for ile liste döngüsü ekle
+    7: kitap arama fonksiyonu ekle
+    8: kitap arama için input al 
+    9: kitap arama fonksiyonu içerisine if else bloğu dahilinde arama döngüsü ekle
+    10: sonsuz döngü aç
+    11: intro olarak belirlenene yazıları printle
+    12: secim inputu ekle
+    13: if else blogu icine secimler göre ayarla ve secimlere göre fonksiyonları yazdır
+    14: Bitir
+    
+"""
+#sozluk
+kutuphane = []
+
+#kitap ekleme fonksiyonu 
+def kitapekle():
+    ad = input("Kitap Adı: ")
+    yazar = input("Yazar: ")
+    yeni_kitap = {'ad': ad, 'yazar': yazar}
+    kutuphane.append(yeni_kitap)
+    print(f"{yazar} tarafından yazılan {ad} adlı kitap kütüphaneye eklendi.")
+    
+#kitap listeleme fonksiyonu
+def kitaplarilistele():
+    if not kutuphane:
+        print("Kütüphane boş.")
+    else:
+        print("Kütüphanedeki Kitaplar:")
+        for i, kitap in enumerate(kutuphane, start=1):
+            print(f"{i}. {kitap['ad']} - {kitap['yazar']}")
+#kitap arama fonksiyonu
+def kitapara():
+    ad = input("Hangi kitabı aramak istiyorsunz: ")
+    for kitap in kutuphane:
+        if kitap['ad'] == ad:
+            print(f"{ad} adlı kitap bulundu - Yazarı: {kitap['yazar']}")
+            break
+    else:
+        print(f"{ad} adlı kitap kütüphanede bulunamadı.")
+#sonsuz döngü
+while True:
+    print("\nKütüphane Sistemine Hoşgeldiniz. Yapabilieceğiniz işlemler aşağıda listelenmiştir.")
+    print("1. Kitap Ekle")
+    print("2. Kitapları Listele")
+    print("3. Kitap Ara")
+    print("4. Çıkış")
+
+    secim = input("Bir seçenek seçin: ")
+
+    if secim == '1':
+        kitapekle()
+    elif secim == '2':
+        kitaplarilistele()
+    elif secim == '3':
+        kitapara()
+    elif secim == '4':
+        print("Çıkış yapıldı.")
+        break
+    else:
+        print("Lütfen tekrar deneyin.")
+     
+
+ 
+#by eren onan
